@@ -21,72 +21,39 @@ function getHumanChoice(){
     if(checkList.includes(humanChoice)){
         return humanChoice
     }
-    else{
+    else {
         alert("invalid entry")
+        
     }
 }
 
 function playRound(humanChoice=getHumanChoice(),computerChoice=getComputerChoice()){
-    const convertor={
-        ROCK : 1,
-        PAPER : 2,
-        SCISSOR : 3    
-    }
+  
+    const humanWin= ( humanChoice=="ROCK" && computerChoice=="SCISSOR" ||
+                     humanChoice=="PAPER" && computerChoice=="ROCK" ||
+                     humanChoice=="SCISSOR" && computerChoice=="PAPER"
+                   ) 
 
-    if(convertor[humanChoice]==1 || convertor[humanChoice]==3 && (convertor[computerChoice]==3 || convertor[computerChoice]==1)){
-        if(convertor[humanChoice]==1 && convertor[computerChoice] != 1){
+    if(humanChoice==computerChoice){
+         alert("Draw")
+    }         
+    else if(humanWin){
             humanScore+=1
             alert("you win "+humanChoice+" beats "+computerChoice)
             alert('computer score:'+computerScore)
             alert("your score:"+humanScore)
         }
-        else if(convertor[computerChoice]==convertor[humanChoice]){
-            alert("Draw")
-        }
-        else{
+    else if(humanChoice==null){
+        alert("please don't enter cancel button or ok button before entering option ")
+    }    
+    else{
             computerScore+=1
             alert("you lose "+computerChoice+" beats "+humanChoice)
             alert('computer score:'+computerScore)
             alert("your score:"+humanScore)
         }
+           
         
-    }
-    else if(convertor[humanChoice]==2 || convertor[humanChoice]==1 && (convertor[computerChoice]==2 || convertor[computerChoice]==1)){
-       
-        if(convertor[humanChoice]==2 && convertor[computerChoice] != 2){
-            humanScore+=1
-            alert("you win "+humanChoice+" beats "+computerChoice)
-            alert('computer score:'+computerScore)
-            alert("your score:"+humanScore)
-        }
-        else if(convertor[computerChoice]==convertor[humanChoice]){
-            alert("Draw")
-        }
-        else{
-            computerScore+=1
-            alert("you lose "+computerChoice+" beats "+humanChoice)
-            alert('computer score:'+computerScore)
-            alert("your score:"+humanScore)
-        }
-    }
-   else if(convertor[humanChoice]==2 || convertor[humanChoice]==3 && (convertor[computerChoice]==2 || convertor[computerChoice]==3)){
-       
-        if(convertor[humanChoice]==3 && convertor[computerChoice] != 3){
-            humanScore+=1
-            alert("you win "+humanChoice+" beats "+computerChoice)
-            alert('computer score:'+computerScore)
-            alert("your score:"+humanScore)
-        }
-        else if(convertor[computerChoice]==convertor[humanChoice]){
-            alert("Draw")
-        }
-        else{
-            computerScore+=1
-            alert("you lose"+computerChoice+" beats"+humanChoice)
-            alert('computer score:'+computerScore)
-            alert("your score:"+humanScore)
-        }
-    }
 
 }
 function startGame(){
