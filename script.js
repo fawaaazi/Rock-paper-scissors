@@ -18,12 +18,14 @@ function getHumanChoice(){
     let humanChoice=String(prompt("Enter the choice"))
     humanChoice=humanChoice.toUpperCase()
     let checkList=["ROCK","PAPER","SCISSOR"]
-    if(checkList.includes(humanChoice)){
+    if(humanChoice == null){
+        return stopGame()
+    }
+     if(checkList.includes(humanChoice)){
         return humanChoice
     }
-    else {
-        alert("invalid entry")
-        
+    else{
+        console.log("invalid entry")
     }
 }
 
@@ -33,42 +35,53 @@ function playRound(humanChoice=getHumanChoice(),computerChoice=getComputerChoice
                      humanChoice=="PAPER" && computerChoice=="ROCK" ||
                      humanChoice=="SCISSOR" && computerChoice=="PAPER"
                    ) 
+    if(humanChoice == null){
 
+        return false
+    }
     if(humanChoice==computerChoice){
-         alert("Draw")
+         console.log("Draw")
+         return true
     }         
     else if(humanWin){
             humanScore+=1
-            alert("you win "+humanChoice+" beats "+computerChoice)
-            alert('computer score:'+computerScore)
-            alert("your score:"+humanScore)
-        }
-    else if(humanChoice==null){
-        alert("please don't enter cancel button or ok button before entering option ")
-    }    
+            console.log("you win "+humanChoice+" beats "+computerChoice)
+            console.log('computer score:'+computerScore)
+            console.log("your score:"+humanScore)
+            return true
+        }   
     else{
             computerScore+=1
-            alert("you lose "+computerChoice+" beats "+humanChoice)
-            alert('computer score:'+computerScore)
-            alert("your score:"+humanScore)
+            console.log("you lose "+computerChoice+" beats "+humanChoice)
+            console.log('computer score:'+computerScore)
+            console.log("your score:"+humanScore)
+            return true
         }
            
         
 
 }
 function startGame(){
-    while(humanScore < 5 && computerScore < 5){
-    playRound()
+    let flag = true;
+    while(humanScore < 5 && computerScore < 5 && flag){
+        flag = playRound()
     }
 
     if(humanScore==5){
-     alert("Game over you win")
-        alert('computer score:'+computerScore+" your score :"+humanScore)
+     console.log("Game over you win")
+        console.log('computer score:'+computerScore+" your score :"+humanScore)
+    }
+    else if( flag == false){
+        console.log("Game paused")
     }
     else{
-        alert("Game over you lose")
-        alert('computer score:'+computerScore+" your score :"+humanScore)
+        console.log("Game over you lose")
+        console.log('computer score:'+computerScore+" your score :"+humanScore)
     }
 
+}
+
+function stopGame(){
+    return null;
 }
 
