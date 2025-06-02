@@ -16,12 +16,12 @@ function getComputerChoice(){
 
 function getHumanChoice(){
     let humanChoice=String(prompt("Enter the choice"))
-    humanChoice=humanChoice.toUpperCase()
-    let checkList=["ROCK","PAPER","SCISSOR"]
     if(humanChoice == null){
         return stopGame()
     }
-     if(checkList.includes(humanChoice)){
+    humanChoice=humanChoice.toUpperCase()
+    let checkList=["ROCK","PAPER","SCISSOR"]
+    if(checkList.includes(humanChoice)){
         return humanChoice
     }
     else{
@@ -36,7 +36,7 @@ function playRound(humanChoice=getHumanChoice(),computerChoice=getComputerChoice
                      humanChoice=="SCISSOR" && computerChoice=="PAPER"
                    ) 
     if(humanChoice == null){
-
+        console.log("game paused");
         return false
     }
     if(humanChoice==computerChoice){
