@@ -14,23 +14,10 @@ function getComputerChoice(){
     }
 }
 
-function getHumanChoice(){
-    let humanChoice=String(prompt("Enter the choice"))
-    if(humanChoice == null){
-        return stopGame()
-    }
-    humanChoice=humanChoice.toUpperCase()
-    let checkList=["ROCK","PAPER","SCISSOR"]
-    if(checkList.includes(humanChoice)){
-        return humanChoice
-    }
-    else{
-        console.log("invalid entry")
-    }
-}
-
-function playRound(humanChoice=getHumanChoice(),computerChoice=getComputerChoice()){
-  
+function playRound(humanChoice, computerChoice){
+    const humanScoreBoard = document.getElementById("human-score");
+    const computerScoreBoard = document.getElementById("comp-score");
+    const statusBar = document.getElementById("status-bar");
     const humanWin= ( humanChoice=="ROCK" && computerChoice=="SCISSOR" ||
                      humanChoice=="PAPER" && computerChoice=="ROCK" ||
                      humanChoice=="SCISSOR" && computerChoice=="PAPER"
@@ -41,10 +28,13 @@ function playRound(humanChoice=getHumanChoice(),computerChoice=getComputerChoice
     }
     if(humanChoice==computerChoice){
          console.log("Draw")
+         statusBar.textContent = "Draw"
          return true
     }         
     else if(humanWin){
             humanScore+=1
+            humanScoreBoard.textContent = humanScore
+            statusBar.textContent = "you win "+humanChoice+" beats "+computerChoice
             console.log("you win "+humanChoice+" beats "+computerChoice)
             console.log('computer score:'+computerScore)
             console.log("your score:"+humanScore)
@@ -52,6 +42,8 @@ function playRound(humanChoice=getHumanChoice(),computerChoice=getComputerChoice
         }   
     else{
             computerScore+=1
+            computerScoreBoard.textContent = computerScore
+            statusBar.textContent = "you lose "+computerChoice+" beats "+humanChoice
             console.log("you lose "+computerChoice+" beats "+humanChoice)
             console.log('computer score:'+computerScore)
             console.log("your score:"+humanScore)
@@ -61,20 +53,14 @@ function playRound(humanChoice=getHumanChoice(),computerChoice=getComputerChoice
         
 
 }
-function startGame(){
-    let flag = true;
-    while(humanScore < 5 && computerScore < 5 && flag){
-        flag = playRound()
-    }
-
+function startGame(humanChoice){
+    var computerChoice = getComputerChoice()
+    playRound(humanChoice, computerChoice);
     if(humanScore==5){
      console.log("Game over you win")
         console.log('computer score:'+computerScore+" your score :"+humanScore)
     }
-    else if( flag == false){
-        console.log("Game paused")
-    }
-    else{
+    else if(computerScore == 5){
         console.log("Game over you lose")
         console.log('computer score:'+computerScore+" your score :"+humanScore)
     }
