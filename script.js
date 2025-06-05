@@ -74,6 +74,7 @@ function gameOver(){
 
 function restartGame(){
     restartBtn.style.display = "none";
+    statusBar.textContent = " Please Press Any Option To Start The Game"
     computerScore = 0;
     humanScore = 0;
     computerScoreBoard.textContent = 0;
