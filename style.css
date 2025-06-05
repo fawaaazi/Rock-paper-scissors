@@ -1,0 +1,128 @@
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: #E9ECEF;
+   
+}
+.header{
+    display: flex;
+    align-items: center;
+    flex:auto;
+    justify-content: center;
+    margin-bottom: 15px;
+    height: 110px;
+   
+}
+
+.game-name{
+    display: flex;
+    flex-shrink: auto;
+    font-size: 48px;
+    font-weight: 900;
+    color: #212529;
+    padding-top: 15px;
+    
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #CED4DA;
+    gap: 45px;
+    padding: 30px;
+    
+}
+#status-bar{
+    color: #E9ECEF;
+    font-size: 24px;
+    font-weight: 900;
+    border: solid #212529;
+    border-radius: 7px;
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #212529;
+    width: 1000px;
+    margin-top: 55px;
+
+}
+.game-buttons{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 50px;
+
+    
+}
+.game-buttons img{
+    width: 150px;
+    height: 150px;
+    object-fit: fill;
+    border: 4px solid;
+    border-color: #3882f6;
+    border-radius: 6px;
+    margin: 6px;
+    cursor: pointer;
+}
+.score{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+.score-sheet{
+    display: flex;
+    border: 4px solid;
+    padding-inline: 24px;
+    padding-block: 5px;
+    font-size: 24px;
+    font-weight: 900;
+    border-radius: 6px;
+    border-color: #212529;
+    color: #212529;
+}
+
+#restart-block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#restart-btn{
+    display: none;
+    width: 110px;
+    height: 55px;
+    border: 4px solid;
+    border-color: #3882f6;
+    border-radius: 6px;
+    margin: 6px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 900;
+    color: #212529;
+    background-color: #CED4DA;
+    position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#restart-btn:hover{
+    background-color:#212529;
+    color:#CED4DA;
+}
+
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    gap: 4px;
+}
+
+.footer img{
+    height: 35px;
+    cursor: pointer;
+}
+
