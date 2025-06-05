@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -24,7 +23,7 @@
             <button id="Paper" onclick="startGame('PAPER')">
                 <img src="/images/Paper.jpeg" alt="">
             </button>
-            <button id="Scissors" onclick="startGame('SCISSOR')">
+            <button id="Scissors" onclick="startGame('SCISSORS')">
                 <img src="/images/Scissors.jpeg" alt="">
             </button>
         </div>
@@ -37,6 +36,11 @@
                 <div>Human Score:</div>
                 <div id="human-score">0</div>
             </div>
+        </div>
+        <div id="restart-block">
+            <button onclick="restartGame()" id="restart-btn">
+                Restart
+            </button>
         </div>
     </section>
     <section class="footer">
@@ -51,4 +55,5 @@
         </p>
     </section>
 </body>
+ <script src="script.js"></script>
 </html>

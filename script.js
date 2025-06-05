@@ -1,6 +1,11 @@
 let computerScore=0
 let humanScore=0
 
+const humanScoreBoard = document.getElementById("human-score");
+const computerScoreBoard = document.getElementById("comp-score");
+const statusBar = document.getElementById("status-bar");
+const restartBtn = document.getElementById("restart-btn");
+
 function getComputerChoice(){
     let number=Math.floor(Math.random()*3)
     if(number==0){
@@ -10,44 +15,30 @@ function getComputerChoice(){
         return "PAPER"
     }
     else{
-        return "SCISSOR"
+        return "SCISSORS"
     }
 }
 
 function playRound(humanChoice, computerChoice){
-    const humanScoreBoard = document.getElementById("human-score");
-    const computerScoreBoard = document.getElementById("comp-score");
-    const statusBar = document.getElementById("status-bar");
-    const humanWin= ( humanChoice=="ROCK" && computerChoice=="SCISSOR" ||
+
+    const humanWin= ( humanChoice=="ROCK" && computerChoice=="SCISSORS" ||
                      humanChoice=="PAPER" && computerChoice=="ROCK" ||
-                     humanChoice=="SCISSOR" && computerChoice=="PAPER"
+                     humanChoice=="SCISSORS" && computerChoice=="PAPER"
                    ) 
-    if(humanChoice == null){
-        console.log("game paused");
-        return false
-    }
+    
     if(humanChoice==computerChoice){
-         console.log("Draw")
          statusBar.textContent = "Draw"
-         return true
+         
     }         
     else if(humanWin){
             humanScore+=1
             humanScoreBoard.textContent = humanScore
             statusBar.textContent = "you win "+humanChoice+" beats "+computerChoice
-            console.log("you win "+humanChoice+" beats "+computerChoice)
-            console.log('computer score:'+computerScore)
-            console.log("your score:"+humanScore)
-            return true
         }   
     else{
             computerScore+=1
             computerScoreBoard.textContent = computerScore
             statusBar.textContent = "you lose "+computerChoice+" beats "+humanChoice
-            console.log("you lose "+computerChoice+" beats "+humanChoice)
-            console.log('computer score:'+computerScore)
-            console.log("your score:"+humanScore)
-            return true
         }
            
         
@@ -55,19 +46,36 @@ function playRound(humanChoice, computerChoice){
 }
 function startGame(humanChoice){
     var computerChoice = getComputerChoice()
+    if(checkGameOver()){
+        gameOver()
+        return
+    }
     playRound(humanChoice, computerChoice);
-    if(humanScore==5){
-     console.log("Game over you win")
-        console.log('computer score:'+computerScore+" your score :"+humanScore)
-    }
-    else if(computerScore == 5){
-        console.log("Game over you lose")
-        console.log('computer score:'+computerScore+" your score :"+humanScore)
-    }
-
+    if(checkGameOver())
+        gameOver()
 }
 
-function stopGame(){
-    return null;
+function checkGameOver(){
+    if(humanScore == 5 || computerScore ==5){
+        return true
+    }
+    return false
 }
 
+function gameOver(){
+    restartBtn.style.display = "block"
+   if(humanScore == 5){
+    statusBar.textContent = "YOU WON !!!"
+   }
+   else{
+    statusBar.textContent = "YOU LOOSE !!!"
+   }
+}
+
+function restartGame(){
+    restartBtn.style.display = "none";
+    computerScore = 0;
+    humanScore = 0;
+    computerScoreBoard.textContent = 0;
+    humanScoreBoard.textContent = 0
+}
