@@ -4,7 +4,8 @@ let humanScore=0
 const humanScoreBoard = document.getElementById("human-score");
 const computerScoreBoard = document.getElementById("comp-score");
 const statusBar = document.getElementById("status-bar");
-const restartBtn = document.getElementById("restart-btn");
+const restartDiv = document.getElementById("reset-div");
+const gameStatus = document.getElementById("game-status");
 
 function getComputerChoice(){
     let number=Math.floor(Math.random()*3)
@@ -63,17 +64,22 @@ function checkGameOver(){
 }
 
 function gameOver(){
-    restartBtn.style.display = "block"
+    restartDiv.style.display = "flex"
+
    if(humanScore == 5){
     statusBar.textContent = "YOU WON !!!"
+    gameStatus.textContent = "WON !!!"
+
    }
    else{
     statusBar.textContent = "YOU LOOSE !!!"
+    gameStatus.textContent = "LOOSE !!!"
+
    }
 }
 
 function restartGame(){
-    restartBtn.style.display = "none";
+    restartDiv.style.display = "none";
     statusBar.textContent = " Please Press Any Option To Start The Game"
     computerScore = 0;
     humanScore = 0;

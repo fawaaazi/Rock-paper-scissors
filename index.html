@@ -27,11 +27,11 @@
                 <img src="images/Scissors.jpeg" alt="">
             </button>
         </div>
-        <div class="reset-div">
+        <div id="reset-div">
             <div>Game over!!</div>
             <div>You <span id="game-status"> Won!!</span></div>
             <div>
-                <button>Restart</button>
+                <button onclick="restartGame()">Restart</button>
             </div>
         </div>
         <div class="score">
@@ -43,11 +43,6 @@
                 <div>Human Score:</div>
                 <div id="human-score">0</div>
             </div>
-        </div>
-        <div id="restart-block">
-            <button onclick="restartGame()" id="restart-btn">
-                Restart
-            </button>
         </div>
     </section>
     <section class="footer">
