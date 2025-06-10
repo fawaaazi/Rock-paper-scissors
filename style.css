@@ -68,6 +68,46 @@ body{
     margin: 6px;
     cursor: pointer;
 }
+
+.reset-div{
+    width: 25rem;
+    height: 15rem;
+    display:none;
+    gap: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    position: absolute;
+    border:#3882f6 solid 8px;
+    border-radius: 4px;
+    top: 20rem;
+    padding: 0.5em;
+    background-color:#CED4DA;
+    font-weight: 900;
+}
+.reset-div button{
+  
+    width: 110px;
+    height: 55px;
+    border: 4px solid;
+    border-color: #3882f6;
+    border-radius: 6px;
+    margin: 6px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 900;
+    color:#E9ECEF;
+    background-color:#212529;
+    position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.reset-div button:active{
+    opacity: 0.5;
+}
+
 .score{
     display: flex;
     align-items: center;
